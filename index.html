@@ -19,7 +19,7 @@
     gap: 12px;
     padding: 16px 30px 8px;
   }
-  /* Piringan putih agar logo biru kontras dengan background biru */
+  /* Lingkaran putih tipis di belakang logo */
   .logo {
     width: 54px; height: 54px;
     background: #ffffff;
@@ -29,8 +29,13 @@
     justify-content: center;
     box-shadow: 0 2px 10px rgba(0,0,0,0.30);
     flex-shrink: 0;
+    overflow: hidden;
   }
-  .logo img { height: 40px; width: auto; display: block; }
+  .logo img {
+    height: 52px;              /* diperbesar: hampir penuh, putihnya cuma tipis di tepi */
+    width: auto;
+    display: block;
+  }
   .nama { color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.25); line-height: 1.25; }
   .nama .utama { font-size: 15px; font-weight: bold; letter-spacing: 0.5px; }
   .nama .sub { font-size: 9px; letter-spacing: 3px; }
@@ -100,7 +105,7 @@
   @media (max-width: 768px) {
     .header { padding: 12px 16px 6px; gap: 10px; }
     .logo { width: 46px; height: 46px; }
-    .logo img { height: 34px; }
+    .logo img { height: 44px; }
     .nama .utama { font-size: 13px; }
     .nama .sub { font-size: 8px; letter-spacing: 2px; }
 
@@ -123,7 +128,7 @@
   @media (max-width: 480px) {
     .header { padding: 10px 12px 4px; gap: 8px; }
     .logo { width: 40px; height: 40px; }
-    .logo img { height: 30px; }
+    .logo img { height: 38px; }
     .nama .utama { font-size: 12px; }
     .nama .sub { font-size: 7.5px; letter-spacing: 1.5px; }
     .navbar { margin: 6px 12px 0; }
