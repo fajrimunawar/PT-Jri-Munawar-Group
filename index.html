@@ -19,7 +19,18 @@
     gap: 12px;
     padding: 16px 30px 8px;
   }
-  .logo img { height: 42px; width: auto; display: block; }
+  /* Piringan putih agar logo biru kontras dengan background biru */
+  .logo {
+    width: 54px; height: 54px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.30);
+    flex-shrink: 0;
+  }
+  .logo img { height: 40px; width: auto; display: block; }
   .nama { color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.25); line-height: 1.25; }
   .nama .utama { font-size: 15px; font-weight: bold; letter-spacing: 0.5px; }
   .nama .sub { font-size: 9px; letter-spacing: 3px; }
@@ -32,7 +43,7 @@
     padding: 4px;
   }
   .tombol-menu {
-    display: none;                 /* di layar besar tombol ini disembunyikan */
+    display: none;
     width: 100%;
     background: none;
     border: none;
@@ -85,23 +96,21 @@
   .dropdown a:last-child { border-bottom: none; }
   .dropdown a:hover { background: #eaf2fc; }
 
-  /* ============ TABLET (layar 768px ke bawah) ============ */
+  /* ============ TABLET (768px ke bawah) ============ */
   @media (max-width: 768px) {
     .header { padding: 12px 16px 6px; gap: 10px; }
-    .logo img { height: 36px; }
+    .logo { width: 46px; height: 46px; }
+    .logo img { height: 34px; }
     .nama .utama { font-size: 13px; }
     .nama .sub { font-size: 8px; letter-spacing: 2px; }
 
     .navbar { margin: 6px 16px 0; }
-    .tombol-menu { display: block; }          /* tombol ☰ muncul */
-    .navbar ul {
-      display: none;                          /* daftar menu disembunyikan dulu */
-      flex-direction: column;                 /* menunya jadi susun ke bawah */
-    }
-    .navbar ul.aktif { display: flex; }       /* muncul saat ☰ diklik */
+    .tombol-menu { display: block; }
+    .navbar ul { display: none; flex-direction: column; }
+    .navbar ul.aktif { display: flex; }
 
     .dropdown {
-      position: static;                       /* sub menu menempel di bawah menunya */
+      position: static;
       min-width: 0;
       box-shadow: none;
       border-radius: 0;
@@ -110,10 +119,11 @@
     .dropdown a { padding-left: 28px; font-size: 12px; }
   }
 
-  /* ============ HP (layar 480px ke bawah) ============ */
+  /* ============ HP (480px ke bawah) ============ */
   @media (max-width: 480px) {
     .header { padding: 10px 12px 4px; gap: 8px; }
-    .logo img { height: 32px; }
+    .logo { width: 40px; height: 40px; }
+    .logo img { height: 30px; }
     .nama .utama { font-size: 12px; }
     .nama .sub { font-size: 7.5px; letter-spacing: 1.5px; }
     .navbar { margin: 6px 12px 0; }
@@ -182,12 +192,10 @@
   </div>
 
 <script>
-  // buka/tutup menu ☰ di HP
   function toggleMenu() {
     document.getElementById('daftarMenu').classList.toggle('aktif');
   }
 
-  // buka/tutup sub menu saat menu utama diklik
   function bukaSub(el) {
     var sub = el.nextElementSibling;
     var sedangTerbuka = sub.classList.contains('terbuka');
@@ -205,7 +213,6 @@
     }
   }
 
-  // klik di luar menu = tutup semua
   document.addEventListener('click', function(e) {
     if (!e.target.closest('.navbar')) {
       document.getElementById('daftarMenu').classList.remove('aktif');
